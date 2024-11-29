@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.metasoft.inventorymanager.entityclasses.Inventory;
 import com.metasoft.inventorymanager.service.InventoryService;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 public class InventoryController {
@@ -26,8 +30,17 @@ public class InventoryController {
 
     }
 
+    
     @PostMapping("/inventory/inventory")
     public Inventory addInventory(Inventory inventory) { 
+        System.out.println(inventory.getQuantity());
         return inventoryService.addInventory(inventory); 
+    }
+
+    @PutMapping("/inventory/{id}")
+    public Inventory putMethodName(@PathVariable Integer id, @RequestBody Inventory inventory) {
+        System.out.println(inventory.toString());
+        return inventoryService.updateInventory(id, inventory);       
+
     }
 }

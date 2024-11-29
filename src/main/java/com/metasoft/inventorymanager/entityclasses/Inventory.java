@@ -54,5 +54,12 @@ public class Inventory {
     public void setWarehouse(Warehouse warehouse) {
         this.warehouse = warehouse;
     }
+
+    @Override
+    public String toString() {
+        return "Inventory [inventoryId=" + inventoryId + ", quantity=" + quantity + ", product=" + product
+                + ", warehouse=" + warehouse + ", getInventoryId()=" + getInventoryId() + ", getQuantity()="
+                + getQuantity() + ", getProduct()=" + getProduct() + ", getWarehouse()=" + getWarehouse() + "]";
+    }
 }
 
